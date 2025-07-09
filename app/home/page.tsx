@@ -6,8 +6,8 @@ const contact = {
   email: "aadhithyaviswanathan@gmail.com",
   phone: "+91-8072660284",
   location: "Erode, Tamil Nadu, India",
-  linkedin: "linkedin.com/in/aadhithya-viswanathan",
-  github: "github.com/aadhithyaviswanathan"
+  linkedin: "https://www.linkedin.com/in/aadhithya-viswanathan-0bb0a62b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  github: "https://github.com/Aadhithya0104"
 };
 
 const sections = [

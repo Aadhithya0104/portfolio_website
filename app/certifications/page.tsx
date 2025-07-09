@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const certifications = [
   "Fundamentals of Digital Marketing – Google Digital Garage",
@@ -7,64 +7,48 @@ const certifications = [
   "Content Marketing and Social Media – HubSpot Academy"
 ];
 
-function ThemeToggleButton({ theme, setTheme }: { theme: string; setTheme: (t: string) => void }) {
+export default function Certifications() {
   return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="theme-toggle-btn theme-toggle-icon"
-      aria-label="Toggle theme"
-      style={{ marginLeft: 8 }}
-    >
-      {theme === "dark" ? (
-        <span role="img" aria-label="Light Mode">🌞</span>
-      ) : (
-        <span role="img" aria-label="Dark Mode">🌙</span>
-      )}
-    </button>
-  );
-}
-
-export default function CertificationsPage() {
-  const [theme, setTheme] = useState("dark");
-  const certRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("scroll-in");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    certRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className={theme === "dark" ? "edu-dark" : "edu-light"} style={{ minHeight: "100vh", transition: "background 0.5s" }}>
-      <div style={{ display: "flex", justifyContent: "flex-end", padding: 24 }}>
-        <ThemeToggleButton theme={theme} setTheme={setTheme} />
-      </div>
-      <div className="edu-hero">
-        <h1 className="edu-title">Certifications</h1>
-        <div className="edu-list">
+    <section className="certifications-hero">
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: [0.77, 0, 0.18, 1] }}
+        className="certifications-hero-content"
+      >
+        <div className="certifications-hero-text">
+          <h1 className="certifications-title">
+            <span className="teal-accent">Certifications</span>
+          </h1>
+          <p className="certifications-tagline">
+            Recognized learning and achievements from leading platforms.
+          </p>
+        </div>
+        <div className="certifications-hero-img">
+          {/* Placeholder SVG icon for certifications */}
+          <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="40" width="80" height="60" rx="16" fill="#fff" stroke="#14b8a6" strokeWidth="10" />
+            <circle cx="70" cy="70" r="18" stroke="#14b8a6" strokeWidth="7" fill="#e0f7fa" />
+            <path d="M70 52L70 88" stroke="#14b8a6" strokeWidth="6" strokeLinecap="round"/>
+          </svg>
+        </div>
+      </motion.div>
+      <div className="certifications-section-list">
+        <div className="certifications-cards">
           {certifications.map((cert, idx) => (
-            <div
-              className="edu-card scroll-animate"
-              key={idx}
-              ref={el => { certRefs.current[idx] = el; }}
-              style={{ animationDelay: `${0.2 + idx * 0.2}s` }}
+            <motion.div
+              className="certification-card"
+              key={cert}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ delay: 0.1 + idx * 0.08, duration: 0.6, ease: [0.77, 0, 0.18, 1] }}
             >
-              <h2 className="edu-degree" style={{ fontSize: '1.1rem', margin: 0 }}>{cert}</h2>
-            </div>
+              {cert}
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 } 

@@ -1,5 +1,16 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import Link from 'next/link';
+import './globals.css';
+
+const NAV_LINKS = [
+  { href: '/about', label: 'About' },
+  { href: '/skills', label: 'Skills' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/achievements', label: 'Achievements' },
+  { href: '/certifications', label: 'Certifications' },
+  { href: '/contact', label: 'Contact' },
+];
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -9,7 +20,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <nav className="apple-nav">
+          <div className="logo-text">Aadhithya</div>
+          <div className="nav-links">
+            {NAV_LINKS.map(link => (
+              <Link key={link.href} href={link.href} className="nav-link">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+        <main className="main-content">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

@@ -1,69 +1,53 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const achievements = [
   "Winner award (twice) in AIIT project exp7 23 with my group : OBSTACLES AVOIDANCE AND TRENCH DETECTION ROVER",
   "Volunteered at the Innovation Centre in the department for 2 years, coordinating events and led multiple student teams, contributing to a culture of creativity, problem-solving among peers."
 ];
 
-function ThemeToggleButton({ theme, setTheme }: { theme: string; setTheme: (t: string) => void }) {
+export default function Achievements() {
   return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="theme-toggle-btn theme-toggle-icon"
-      aria-label="Toggle theme"
-      style={{ marginLeft: 8 }}
-    >
-      {theme === "dark" ? (
-        <span role="img" aria-label="Light Mode">🌞</span>
-      ) : (
-        <span role="img" aria-label="Dark Mode">🌙</span>
-      )}
-    </button>
-  );
-}
-
-export default function AchievementsPage() {
-  const [theme, setTheme] = useState("dark");
-  const achRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("scroll-in");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    achRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className={theme === "dark" ? "edu-dark" : "edu-light"} style={{ minHeight: "100vh", transition: "background 0.5s" }}>
-      <div style={{ display: "flex", justifyContent: "flex-end", padding: 24 }}>
-        <ThemeToggleButton theme={theme} setTheme={setTheme} />
-      </div>
-      <div className="edu-hero">
-        <h1 className="edu-title">Achievements</h1>
-        <div className="edu-list">
+    <section className="achievements-hero">
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: [0.77, 0, 0.18, 1] }}
+        className="achievements-hero-content"
+      >
+        <div className="achievements-hero-text">
+          <h1 className="achievements-title">
+            <span className="teal-accent">Achievements</span>
+          </h1>
+          <p className="achievements-tagline">
+            Celebrating milestones and contributions along my journey.
+          </p>
+        </div>
+        <div className="achievements-hero-img">
+          {/* Placeholder SVG icon for achievements */}
+          <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="70" cy="70" r="60" fill="#fff" stroke="#14b8a6" strokeWidth="10" />
+            <path d="M70 40L70 100" stroke="#14b8a6" strokeWidth="8" strokeLinecap="round"/>
+            <path d="M55 85L70 100L85 85" stroke="#14b8a6" strokeWidth="8" strokeLinecap="round"/>
+          </svg>
+        </div>
+      </motion.div>
+      <div className="achievements-section-list">
+        <div className="achievements-cards">
           {achievements.map((ach, idx) => (
-            <div
-              className="edu-card scroll-animate"
-              key={idx}
-              ref={el => { achRefs.current[idx] = el; }}
-              style={{ animationDelay: `${0.2 + idx * 0.2}s` }}
+            <motion.div
+              className="achievement-card"
+              key={ach}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ delay: 0.1 + idx * 0.08, duration: 0.6, ease: [0.77, 0, 0.18, 1] }}
             >
-              <h2 className="edu-degree" style={{ fontSize: '1.1rem', margin: 0 }}>{ach}</h2>
-            </div>
+              {ach}
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 } 
