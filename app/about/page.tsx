@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+
 export default function About() {
   return (
     <section className="about-hero">
