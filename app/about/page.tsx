@@ -13,7 +13,7 @@ export default function About() {
       >
         <div className="about-hero-text">
           <h1 className="about-title">
-            Hi, I'm <span className="teal-accent">Aadhithya Viswanathan</span>
+            Hi, I&apos;m <span className="teal-accent">Aadhithya Viswanathan</span>
           </h1>
           <p className="about-tagline">
             Designing digital experiences with passion, precision, and a touch of innovation.
