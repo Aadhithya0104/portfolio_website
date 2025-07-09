@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from 'next/link';
 import './globals.css';
+import { useState } from 'react';
 
 const NAV_LINKS = [
   { href: '/about', label: 'About' },
@@ -18,14 +19,25 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [navOpen, setNavOpen] = useState(false);
   return (
     <html lang="en">
       <body>
         <nav className="apple-nav">
           <div className="logo-text">Aadhithya</div>
-          <div className="nav-links">
+          <button
+            className="nav-hamburger"
+            aria-label="Open navigation menu"
+            aria-expanded={navOpen}
+            onClick={() => setNavOpen((v) => !v)}
+          >
+            <span className="nav-hamburger-bar" />
+            <span className="nav-hamburger-bar" />
+            <span className="nav-hamburger-bar" />
+          </button>
+          <div className={`nav-links${navOpen ? ' nav-links-open' : ''}`}>
             {NAV_LINKS.map(link => (
-              <Link key={link.href} href={link.href} className="nav-link">
+              <Link key={link.href} href={link.href} className="nav-link" onClick={() => setNavOpen(false)}>
                 {link.label}
               </Link>
             ))}
