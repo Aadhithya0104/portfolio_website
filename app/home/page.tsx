@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Image from 'next/image';
 
 const contact = {
   email: "aadhithyaviswanathan@gmail.com",
@@ -143,10 +144,13 @@ export default function Home() {
       </div>
       <div className="resume-container">
         <div className="resume-header">
-          <img
+          <Image
             src="/profile.jpg"
             alt="Profile"
             className="resume-photo"
+            width={130}
+            height={130}
+            priority
           />
           <div className="resume-title-block">
             <h1 className="resume-name">AADHITHYA VISWANATHAN</h1>
