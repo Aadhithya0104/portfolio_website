@@ -2,8 +2,8 @@
 import { useState } from 'react';
 
 const contact = {
-  email: "aadhithyaviswanathan5@gmail.com",
-  phone: "+91-8072962254",
+  email: "aadhithyaviswanathan@gmail.com",
+  phone: "+91-8072660284",
   location: "Erode, Tamil Nadu, India",
   linkedin: "linkedin.com/in/aadhithya-viswanathan",
   github: "github.com/aadhithyaviswanathan"
@@ -23,18 +23,18 @@ const sections = [
 const sectionData = {
   education: [
     {
-      degree: "B.E in Information Technology (CGPA: 7.4, upto 7th Sem)",
+      degree: "B.TECH in Information Technology (CGPA: 7.2)",
       institution: "GOVERNMENT COLLEGE OF ENGINEERING | ERODE",
       duration: "Nov 2021 – May 2025",
     },
     {
-      degree: "Diploma in Mechanical (79%)",
+      degree: "Diploma in Mechatronics Engineering (79%)",
       institution: "KONGU POLYTECHNIC COLLEGE | ERODE",
       duration: "July 2018 – June 2020",
     },
     {
       degree: "SSLC",
-      institution: "JAYCEES MATRIC HIGHER SECONDARY SCHOOL | ERODE",
+      institution: "JAYCEES MATRIC HIGHER SECONDARY SCHOOL (81%) | ERODE",
       duration: "Apr 2018",
     },
   ],

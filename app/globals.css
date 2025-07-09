@@ -537,3 +537,88 @@ body {
   font-size: 1rem;
   opacity: 0.85;
 }
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .resume-container {
+    max-width: 98vw;
+    padding: 28px 8vw 24px 8vw;
+  }
+  .resume-header {
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .resume-container {
+    padding: 18px 2vw 12px 2vw;
+    border-radius: 18px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .resume-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .resume-photo {
+    width: 90px;
+    height: 90px;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+  .resume-title-block {
+    width: 100%;
+  }
+  .resume-name {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+  .resume-contact {
+    font-size: 0.98rem;
+    margin-bottom: 2px;
+  }
+  .resume-links {
+    font-size: 0.98rem;
+  }
+  .resume-summary {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+  .resume-tabs {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .resume-tab-btn {
+    width: 100%;
+    min-width: unset;
+    min-height: 40px;
+    font-size: 1rem;
+    padding: 0 10px;
+    border-radius: 12px;
+  }
+  .resume-section-content {
+    min-height: 120px;
+    margin-top: 8px;
+  }
+  .resume-section-list {
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .edu-card {
+    padding: 16px 10px;
+    border-radius: 10px;
+    font-size: 0.98rem;
+  }
+  .edu-degree {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+  .edu-inst {
+    font-size: 0.98rem;
+  }
+  .edu-dur {
+    font-size: 0.92rem;
+  }
+}
