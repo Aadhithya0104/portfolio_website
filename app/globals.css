@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+turn off the transparent in profile op/* Universal dark background override */
+* {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+body, html {
+  background: linear-gradient(135deg, var(--color-dark-bg1) 0%, var(--color-dark-bg2) 100%) !important;
+  color: var(--color-light-text) !important;
+}
+
 /* Apple iPhone inspired global styles */
 
 :root {
@@ -12,14 +23,20 @@
   --color-accent-dark: #1c1c1c;
   --nav-height: 64px;
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --color-dark-bg1: #10131a;
+  --color-dark-bg2: #181c24;
+  --color-light-text: #f5f6fa;
+  --color-secondary-text: #bfc9d1;
+  --color-card-bg: rgba(24, 28, 36, 0.85);
+  --color-card-border: #23283a;
 }
 
 html, body {
   padding: 0;
   margin: 0;
   font-family: var(--font-main);
-  background: var(--color-pale);
-  color: var(--color-dark);
+  background: linear-gradient(135deg, var(--color-dark-bg1) 0%, var(--color-dark-bg2) 100%);
+  color: var(--color-light-text);
   min-height: 100vh;
   scroll-behavior: smooth;
 }
@@ -29,8 +46,8 @@ html, body {
   top: 0;
   width: 100%;
   height: var(--nav-height);
-  background: var(--color-pale);
-  box-shadow: 0 2px 8px 0 var(--color-gray);
+  background: transparent;
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +60,7 @@ html, body {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--color-dark);
+  color: var(--color-light-text);
   font-family: var(--font-main);
   user-select: none;
 }
@@ -56,7 +73,7 @@ html, body {
 .nav-link {
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--color-dark);
+  color: var(--color-light-text);
   text-decoration: none;
   position: relative;
   padding: 4px 0;
@@ -64,7 +81,7 @@ html, body {
 }
 
 .nav-link:hover, .nav-link:focus {
-  color: var(--color-accent-dark);
+  color: var(--color-secondary-text);
 }
 
 .nav-link::after {
@@ -72,7 +89,7 @@ html, body {
   display: block;
   height: 2px;
   width: 0;
-  background: var(--color-accent-dark);
+  background: var(--color-secondary-text);
   transition: width 0.3s;
   position: absolute;
   left: 0;
@@ -88,6 +105,8 @@ html, body {
   margin: 0 auto;
   padding: 48px 24px 24px 24px;
   min-height: calc(100vh - var(--nav-height));
+  background: transparent;
+  color: var(--color-light-text);
 }
 
 /* Section backgrounds and cards */
@@ -98,10 +117,10 @@ html, body {
 .achievements-hero,
 .certifications-hero,
 .contact-hero {
-  background: linear-gradient(120deg, var(--color-lighter) 0%, var(--color-pale) 100%);
+  background: var(--color-card-bg);
   border-radius: 32px;
   margin-top: 32px;
-  box-shadow: 0 8px 48px 0 var(--color-gray);
+  box-shadow: 0 8px 48px 0 var(--color-card-border);
 }
 
 .skill-card,
@@ -110,11 +129,11 @@ html, body {
 .achievement-card,
 .certification-card,
 .contact-card {
-  background: var(--color-light);
+  background: var(--color-card-bg);
   border-radius: 18px;
-  box-shadow: 0 4px 24px 0 var(--color-gray);
-  border: 2px solid var(--color-lighter);
-  color: var(--color-dark);
+  box-shadow: 0 4px 24px 0 var(--color-card-border);
+  border: 2px solid var(--color-card-border);
+  color: var(--color-light-text);
 }
 
 .skill-card:hover,
@@ -123,10 +142,10 @@ html, body {
 .achievement-card:hover,
 .certification-card:hover,
 .contact-card:hover {
-  background: var(--color-pale);
-  box-shadow: 0 8px 32px 0 var(--color-accent);
-  color: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
+  background: rgba(36, 42, 56, 0.95);
+  box-shadow: 0 8px 32px 0 var(--color-secondary-text);
+  color: var(--color-light-text);
+  border-color: var(--color-secondary-text);
 }
 
 .skills-section-title,
@@ -135,11 +154,11 @@ html, body {
 .achievements-title,
 .certifications-title,
 .contact-title {
-  color: var(--color-dark);
+  color: var(--color-light-text);
 }
 
 .teal-accent {
-  color: var(--color-accent-dark);
+  color: var(--color-secondary-text);
 }
 
 /* About Page Hero Section */
@@ -149,10 +168,10 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(120deg, #f8fafc 0%, #fff 100%);
+  background: var(--color-card-bg);
   border-radius: 32px;
   margin-top: 32px;
-  box-shadow: 0 8px 48px 0 #14b8a61a;
+  box-shadow: 0 8px 48px 0 var(--color-card-border);
 }
 
 .about-hero-content {
@@ -174,14 +193,14 @@ html, body {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 18px;
-  color: #111;
+  color: var(--color-light-text);
   letter-spacing: 0.01em;
   line-height: 1.1;
 }
 
 .about-tagline {
   font-size: 1.35rem;
-  color: #444;
+  color: var(--color-secondary-text);
   margin-bottom: 0;
   font-weight: 500;
   max-width: 480px;
@@ -198,12 +217,28 @@ html, body {
   border-radius: 50%;
   border: 5px solid var(--color-accent-dark);
   box-shadow: 0 0 32px 4px #14b8a655;
-  background: #fff;
+  background: var(--color-card-bg);
   object-fit: cover;
   width: 260px;
   height: 260px;
   aspect-ratio: 1 / 1;
   display: block;
+}
+
+/* Set a distinct background for images only */
+
+.about-profile-img,
+.skill-logo-img {
+  background: linear-gradient(135deg, var(--color-dark-bg2) 60%, var(--color-card-bg) 100%);
+  box-shadow: 0 0 16px 2px var(--color-card-border);
+}
+
+/* Remove transparent override for profile photo */
+.about-profile-img {
+  background: #181c24 !important;
+  box-shadow: 0 0 32px 4px #23283a;
+  border: 6px solid #23283a !important;
+  z-index: 2;
 }
 
 @media (max-width: 900px) {
@@ -230,10 +265,10 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: linear-gradient(120deg, #f8fafc 0%, #fff 100%);
+  background: var(--color-card-bg);
   border-radius: 32px;
   margin-top: 32px;
-  box-shadow: 0 8px 48px 0 #14b8a61a;
+  box-shadow: 0 8px 48px 0 var(--color-card-border);
 }
 
 .skills-hero-content {
@@ -255,14 +290,14 @@ html, body {
   font-size: 2.6rem;
   font-weight: 800;
   margin-bottom: 18px;
-  color: #111;
+  color: var(--color-light-text);
   letter-spacing: 0.01em;
   line-height: 1.1;
 }
 
 .skills-tagline {
   font-size: 1.2rem;
-  color: #444;
+  color: var(--color-secondary-text);
   margin-bottom: 0;
   font-weight: 500;
   max-width: 420px;
@@ -298,14 +333,14 @@ html, body {
 }
 
 .skill-card {
-  background: #fff;
+  background: var(--color-card-bg);
   border-radius: 18px;
-  box-shadow: 0 4px 24px 0 #14b8a62a;
+  box-shadow: 0 4px 24px 0 var(--color-card-border);
   padding: 18px 32px;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #111;
-  border: 2px solid #e0f7fa;
+  color: var(--color-light-text);
+  border: 2px solid var(--color-card-border);
   transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
   cursor: default;
 }
@@ -331,16 +366,16 @@ html, body {
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  background: #f8fafc;
+  background: var(--color-dark-bg2);
   border-radius: 16px;
-  box-shadow: 0 2px 8px 0 #14b8a61a;
+  box-shadow: 0 2px 8px 0 var(--color-card-border);
 }
 .skill-logo-img {
   width: 48px;
   height: 48px;
   object-fit: contain;
   border-radius: 10px;
-  background: #fff;
+  background: var(--color-card-bg);
 }
 .skill-logo-label {
   font-size: 1.04rem;
@@ -1205,4 +1240,74 @@ button {
   .contact-title {
     font-size: 1.15rem;
   }
+}
+
+/* Ensure all text is visible on dark backgrounds */
+
+.skills-section-title,
+.projects-title,
+.experience-title,
+.achievements-title,
+.certifications-title,
+.contact-title,
+.skill-logo-label,
+.project-title,
+.experience-company,
+.achievement-title,
+.certification-title,
+.contact-title {
+  color: var(--color-light-text) !important;
+}
+
+/* Override any dark or semi-transparent text colors */
+.about-title,
+.skills-title,
+.projects-title,
+.experience-title,
+.achievements-title,
+.certifications-title,
+.contact-title {
+  color: var(--color-light-text) !important;
+}
+
+.teal-accent,
+.skills-section-title,
+.projects-section-title {
+  color: var(--color-secondary-text) !important;
+}
+
+/* General text color for paragraphs and labels */
+p, label, span, div, li, h2, h3, h4, h5, h6 {
+  color: var(--color-light-text);
+}
+
+/* Force all hero, card, and section backgrounds to dark */
+.projects-hero,
+.experience-hero,
+.achievements-hero,
+.certifications-hero,
+.contact-hero,
+.project-card,
+.experience-card,
+.achievement-card,
+.certification-card,
+.contact-card {
+  background: var(--color-card-bg) !important;
+  box-shadow: 0 8px 48px 0 var(--color-card-border) !important;
+  color: var(--color-light-text) !important;
+}
+
+/* Remove any remaining white backgrounds from all descendants */
+.projects-hero *,
+.experience-hero *,
+.achievements-hero *,
+.certifications-hero *,
+.contact-hero *,
+.project-card *,
+.experience-card *,
+.achievement-card *,
+.certification-card *,
+.contact-card * {
+  background: transparent !important;
+  color: var(--color-light-text) !important;
 }

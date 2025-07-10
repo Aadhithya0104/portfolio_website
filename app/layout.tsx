@@ -2,6 +2,9 @@
 import Link from 'next/link';
 import './globals.css';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const Background3D = dynamic(() => import('./Background3D'), { ssr: false });
 
 const NAV_LINKS = [
   { href: '/home', label: 'Home' },
@@ -18,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        <Background3D />
         <nav className="apple-nav">
           <div className="logo-text">Aadhithya</div>
           <button
