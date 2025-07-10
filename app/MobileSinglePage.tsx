@@ -11,13 +11,13 @@ const Certifications = dynamic(() => import("./certifications/page"));
 const Contact = dynamic(() => import("./contact/page"));
 
 const sections = [
-  { id: "home", label: "Home", Component: Home },
-  { id: "skills", label: "Skills", Component: Skills },
-  { id: "projects", label: "Projects", Component: Projects },
-  { id: "experience", label: "Experience", Component: Experience },
-  { id: "achievements", label: "Achievements", Component: Achievements },
-  { id: "certifications", label: "Certifications", Component: Certifications },
-  { id: "contact", label: "Contact", Component: Contact },
+  { id: "home", Component: Home },
+  { id: "skills", Component: Skills },
+  { id: "projects", Component: Projects },
+  { id: "experience", Component: Experience },
+  { id: "achievements", Component: Achievements },
+  { id: "certifications", Component: Certifications },
+  { id: "contact", Component: Contact },
 ];
 
 export default function MobileSinglePage() {
@@ -33,7 +33,7 @@ export default function MobileSinglePage() {
   }, []);
   return (
     <div style={{ position: "relative" }}>
-      {sections.map(({ id, label, Component }, idx) => (
+      {sections.map(({ id, Component }, idx) => (
         <section id={id} key={id} style={{ marginBottom: 32 }}>
           <Component />
           {idx < sections.length - 1 && (
